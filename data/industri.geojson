@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "industri",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAMOBJ": null, "LUAS": 0.0, "KLSBBK": 0, "KLSTKI": 0, "KLSPRD": 0, "KLSBMT": 999, "KLSLOK": 0, "KLSPRO": 0, "KLSKOM": 0, "KLSMOD": 0, "KLSJNS": 999, "FCODE": null, "REMARK": "Industri Manufaktur Lainnya", "SRS_ID": null, "LCODE": "GC0020", "METADATA": null }, "geometry": { "type": "Point", "coordinates": [ 107.202856529000087, -6.393109917999936, 43.144499999994878 ] } },
+{ "type": "Feature", "properties": { "NAMOBJ": null, "LUAS": 0.0, "KLSBBK": 0, "KLSTKI": 0, "KLSPRD": 0, "KLSBMT": 999, "KLSLOK": 0, "KLSPRO": 0, "KLSKOM": 0, "KLSMOD": 0, "KLSJNS": 2, "FCODE": null, "REMARK": "Industri Bahan Dasar Logam", "SRS_ID": null, "LCODE": "GC0020", "METADATA": null }, "geometry": { "type": "Point", "coordinates": [ 107.199258843000052, -6.44410746899996, 91.210099999996601 ] } },
+{ "type": "Feature", "properties": { "NAMOBJ": null, "LUAS": 0.0, "KLSBBK": 0, "KLSTKI": 0, "KLSPRD": 0, "KLSBMT": 999, "KLSLOK": 0, "KLSPRO": 0, "KLSKOM": 0, "KLSMOD": 0, "KLSJNS": 999, "FCODE": null, "REMARK": "Industri Manufaktur Lainnya", "SRS_ID": null, "LCODE": "GC0020", "METADATA": null }, "geometry": { "type": "Point", "coordinates": [ 107.131631, -6.375407, 69.892200000002049 ] } }
+]
+}

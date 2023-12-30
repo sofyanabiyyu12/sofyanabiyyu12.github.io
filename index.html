@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+
+    <title>WEB UAS SIG</title>
+    <!-- Source boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin="anonymous"></script>
+    <!-- Data json -->
+    <script src="data/leaflet.ajax.js"></script>
+    <script type="text/javascript"></script>
+
+    <!-- Styling HTML CSS -->
+    <style>
+        #header {
+            height: 75px;
+            background-color: rgb(217, 210, 150);
+        }
+        
+        #side_panel {
+            height: 650px;
+            background-color: rgb(12, 142, 228);
+        }
+        
+        #mapdiv {
+            height: 610px;
+            background-color: rgb(255, 255, 255);
+        }
+        
+        #footer {
+            height: 75px;
+            background-color: rgb(141, 250, 114);
+        }
+    </style>
+
+    <body>
+</head>
+
+<div id="header" class="container-fluid text-center">
+    <h1 class="text-center">PETA KABUPATEN BEKASI</h1>
+</div>
+
+<div class="container-flud">
+    <div class="row">
+        <div id="side_panel" class="col-md-3">
+            <h3 class="text-center">Industri</h3>
+            <!-- Nomor 2.3 -->
+            <button id="ZoomToPusatKabupatenBekasi" class="from-control btn-primary">Kabupaten Bekasi</button>
+        </div>
+        <div id="mapdiv" class="col-md-8"></div>
+    </div>
+
+</div>
+<div id="footer" class="col-md-12">
+    <h4 id="map_coord" class="text-center">Latitude: -6.262678192012501 Longitude: 107.15025876648622 </h4>
+</div>
+<h4 class="text-center">&copy;2023 <a href="https://untirta.id">UNTIRTA</a></h4>
+
+</div>
+<!-- Nomor 2.1 dan 2.2 -->
+<script>
+    var mymap = L.map('mapdiv');
+
+    mymap.setView([-6.262678192012501, 107.15025876648622], 9);
+
+    var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+
+    mymap.addLayer(backgroundLayer);
+
+    var mymarker = L.marker([-6.262678192012501, 107.15025876648622]);
+    mymarker.addTo(mymap);
+    mymarker.bindPopup("<h5 class='text-center'>Kab Bekasi</h5><hr><a href='https://id.wikipedia.org/wiki/Kabupaten_Bekasi' target='blank'><img src='image/tambun.jpg' width='150px'></a>");
+
+    var geojsonArealayer = new L.GeoJSON.AJAX(["data/DESA.geojson"]).addTo(mymap);
+    var geojsonLinelayer = new L.GeoJSON.AJAX(["data/linedesa.geojson"]).addTo(mymap);
+    var geojsonPointlayer = new L.GeoJSON.AJAX(["data/industri.geojson"]).addTo(mymap);
+    var baseMaps = {
+        "Area": geojsonArealayer,
+        "Line": geojsonLinelayer,
+    }
+    var overLays = {
+        "Industri": geojsonPointlayer,
+    }
+
+    L.control.layers(baseMaps, overLays).addTo(mymap);
+    $("#ZoomToPusatKabupatenBekasi").click(function() {
+        mymap.setView([-6.262678192012501, 107.15025876648622], 9);
+    })
+</script>
+</body>
+
+</html>
